@@ -15,3 +15,30 @@ the article [Fast simulation of trunacted Gaussian distributions](http://link.sp
 	4. Write the probability so we can test more advanced 
 	5. Matlab version
 	6. test on the amzaon cluster
+
+
+## Python
+For python the requirements are:
+
+* scipy (will be removed)
+* NumPy
+* Cython
+* openmp (option can be turned off in setupy.py)
+
+::
+
+	pip -e 'git+https://git@github.com/JonasWallin/rtnorm.git#egg=rtnorm&subdirectory=python/rtnorm' 
+
+To use the sampler:
+
+	import rtnorm
+	sampler = rtnorm.rtnorm()
+	X = sampler(a = 1, b = 2, mu = 3, sigma = 4)
+	
+Or with vectors:
+
+	import rtnorm
+	import numpy as np
+	X = sampler( a = np.zeros((4,)), b = np.random.rand(4) )
+
+

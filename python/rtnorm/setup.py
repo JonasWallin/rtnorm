@@ -57,7 +57,7 @@ metadata = dict(
 	url			  = 'https://github.com/JonasWallin/rtnorm',
 	author_email	 = 'jonas.wallin81@gmail.com',
 	install_requires = ['cython', 'numpy'],
-	requires		 = ['numpy (>=1.3.0)','cython'],
+	requires		 = ['numpy (>=1.3.0)','cython','scipy'],
 	ext_modules	  = [Extension('rtnorm.cython.rtnorm',['rtnorm/cython/rtnorm.pyx',
 														'rtnorm/cython/cpp/rtnorm.cpp'],
 							library_dirs = include_dirs_,
