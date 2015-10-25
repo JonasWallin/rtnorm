@@ -6,14 +6,11 @@ Created on Fri Oct 23 15:15:06 2015
 
 @author: jonaswallin
 """
-import os
-import sys
 from scipy import stats
 
 import numpy as np
-sys.path.append(os.path.abspath(os.path.dirname(__file__) + '/' + '../oldcode/'))
- 
-from rtnorm import rtnorm
+
+from rtnorm.oldcode import rtnorm as rntorm_v1
 import unittest
 
 
@@ -27,7 +24,7 @@ def KS_test_Rtrunc(a, b, n = 1000, p_lim = 0.01):
     """
     
     f = lambda x: stats.truncnorm.cdf(x, a, b)
-    p_val = stats.kstest(rtnorm(a, b,size=n), f)[1]
+    p_val = stats.kstest(rntorm_v1(a, b,size=n), f)[1]
     if p_val < p_lim:
         print('p_val = {pval}'.format(pval = p_val))
         return False
@@ -41,7 +38,7 @@ class RtnormTestCase(unittest.TestCase):
         """
             if the limits are -inf, inf does it generate samples from  
         """
-        p_val = stats.kstest(rtnorm(-np.inf,np.inf,size=1000), 'norm')[1]
+        p_val = stats.kstest(rntorm_v1(-np.inf,np.inf,size=1000), 'norm')[1]
         self.assertTrue(p_val > 0.01, msg='KS failed')
          
     def test_01(self):
