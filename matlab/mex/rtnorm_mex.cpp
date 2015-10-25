@@ -45,7 +45,9 @@ void mexFunction(int nlhs, mxArray *plhs[], int nrhs, const mxArray *prhs[]){
 	double *b          = mxGetPr(b_in);
 	double *mu         = mxGetPr(mu_in);
 	double *sigma      = mxGetPr(sigma_in);
-	value_checking(n_elements, a, b, mu);
+	
+
+	value_checking(n_elements, a, b, sigma);
 	
 
 
